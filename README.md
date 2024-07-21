@@ -58,4 +58,13 @@ To address these challenges, WellnessSync deploys a machine learning model using
    ```bash
    git clone https://github.com/yourusername/wellnesssync.git
    cd wellnesssync
-
+2. Install the required libraries:
+   ```bash
+   pip install -r requirements.txt
+### Running the Application
+1. Clone the repository:
+   ```bash
+   unzip health_data.zip
+2. Start the Flask server and Gradio interface:
+   ```bash
+   python app.py
