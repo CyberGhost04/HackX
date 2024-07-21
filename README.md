@@ -1,17 +1,17 @@
 # WellnessSync
 
-Welcome to WellnessSync, your path to a healthier lifestyle through personalized health monitoring and recommendations. This project leverages machine learning algorithms to provide predictive health insights and tailored wellness advice based on individual lifestyle, diet, and activity data.
+![WellnessSync](https://github.com/CoppsySK/wellnessSync/blob/main/wellness.png)
 
 ## 📚 Table of Contents
-- [Project Overview](#project-overview)
-- [Problem Statement](#problem-statement)
-- [Proposed Solution](#proposed-solution)
-- [Features & Functionalities](#features--functionalities)
-- [Tech Stack](#tech-stack)
-- [Project Files Description](#project-files-description)
-- [Getting Started](#getting-started)
-- [Visualizations](#visualizations)
-- [Contributors](#contributors)
+- [📝 Project Overview](#-project-overview)
+- [☁️ Problem Statement](#-problem-statement)
+- [💾 Proposed Solution](#-proposed-solution)
+- [🔍 Features & Functionalities](#-features--functionalities)
+- [📖 Tech Stack](#-tech-stack)
+- [📜 Project Files Description](#-project-files-description)
+- [🔸 Getting Started](#-getting-started)
+- [📊 Visualizations](#-visualizations)
+- [👥 Contributors](#-contributors)
 
 ## 📝 Project Overview
 WellnessSync is designed to gather and analyze data from various sources related to lifestyle, activity, and diet to provide personalized health monitoring. Using machine learning, the project offers predictive health insights and recommendations to help users maintain healthy habits and improve their overall well-being.
@@ -26,7 +26,7 @@ Many existing health monitoring systems face the following challenges:
 ## 💾 Proposed Solution
 To address these challenges, WellnessSync deploys a machine learning model using joblib for real-time predictions. The project preprocesses and transforms user data to ensure accurate insights and leverages Google Generative AI API for generating tailored health advice.
 
-## Features & Functionalities
+## 🔍 Features & Functionalities
 - **Personalized Recommendations:** Tailor health and wellness advice to individual users based on unique lifestyle, diet, and activity data.
 - **Data Analysis:** Utilize machine learning models to analyze diverse user data.
 - **User-Friendly Interface:** Create an engaging and easy-to-use interface that integrates with health apps and devices.
@@ -58,5 +58,4 @@ To address these challenges, WellnessSync deploys a machine learning model using
    ```bash
    git clone https://github.com/yourusername/wellnesssync.git
    cd wellnesssync
-
 
