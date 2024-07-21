@@ -1,0 +1,5 @@
+pandas
+joblib
+gradio
+google-generativeai
+Flask
