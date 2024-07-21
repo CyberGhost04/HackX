@@ -10,7 +10,6 @@
 - [📖 Tech Stack](#-tech-stack)
 - [📜 Project Files Description](#-project-files-description)
 - [🔸 Getting Started](#-getting-started)
-- [📊 Visualizations](#-visualizations)
 - [👥 Contributors](#-contributors)
 
 ## 📝 Project Overview
@@ -69,9 +68,6 @@ To address these challenges, WellnessSync deploys a machine learning model using
    ```bash
    python app.py
    
-## 📊 Visualizations
-Visualizations will be added to the interface to provide users with graphical representations of their health data and predictions. Future updates will include charts and graphs to help users easily track their progress and understand their health metrics.
-
 ## 👥 Contributors
 Shivam Khosla 
 Gauri Bahl
