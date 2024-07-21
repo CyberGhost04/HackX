@@ -70,6 +70,7 @@ To address these challenges, WellnessSync deploys a machine learning model using
    
 ## 👥 Contributors
 Shivam Khosla 
+
 Gauri Bahl
 
 ## Thank you for using WellnessSync! We hope this tool helps you on your journey to a healthier lifestyle.
