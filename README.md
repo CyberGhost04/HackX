@@ -73,6 +73,7 @@ To address these challenges, WellnessSync deploys a machine learning model using
 Visualizations will be added to the interface to provide users with graphical representations of their health data and predictions. Future updates will include charts and graphs to help users easily track their progress and understand their health metrics.
 
 ## 👥 Contributors
-Shivam Khosla & Gauri Bahl
+Shivam Khosla 
+Gauri Bahl
 
 ## Thank you for using WellnessSync! We hope this tool helps you on your journey to a healthier lifestyle.
