@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const eventSource = new EventSource("{{ url_for('survey') }}");
+
+            eventSource.onmessage = function (event) {
+                const recommendationsDiv = document.getElementById("recommendations");
+                recommendationsDiv.innerHTML += event.data + " ";
+            };
+
+            eventSource.onerror = function () {
+                eventSource.close();
+            };
+        });
+    </script>
+</head>
+<body>
+    <div class="recommendation-container">
+        <h2>Your Health Recommendations</h2>
+        <div id="recommendations"></div>
+    </div>
+</body>
+</html>

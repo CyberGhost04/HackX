@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/survey.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Health Survey</h2>
+        <form id="survey-form" action="{{ url_for('survey') }}" method="POST">
+            <!-- Input fields -->
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+                
+            <label for="bmi">BMI:</label>
+            <input type="number" id="bmi" name="bmi" required>
+                
+            <label for="ailments">Specific ailments:</label>
+            <input type="text" id="ailments" name="ailments">
+                
+            <label for="food_preference">Food preference:</label>
+            <input type="text" id="food_preference" name="food_preference">
+                
+            <label for="smoker">Do you smoke? If yes, how much in a day?</label>
+            <input type="text" id="smoker" name="smoker" value="No">
+                
+            <label for="living_in">Living in:</label>
+            <div class="radio-group">
+                <input type="radio" id="Rural" name="living_in" value="Rural">
+                <label for="Rural">Rural</label>
+                <input type="radio" id="Sub_Urban" name="living_in" value="Sub_Urban">
+                <label for="Sub_Urban">Sub-Urban</label>
+                <input type="radio" id="Urban" name="living_in" value="Urban">
+                <label for="Urban">Urban</label>
+            </div>
+                
+            <label for="hereditary_condition">Any hereditary condition?</label>
+            <input type="text" id="hereditary_condition" name="hereditary_condition">
+                
+            <label for="follow_diet">Follow Diet:</label>
+            <select id="follow_diet" name="follow_diet">
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Pescatarian">Pescatarian</option>
+                <option value="Omnivore">Omnivore</option>
+                <option value="No specific diet">No specific diet</option>
+            </select>
+                
+            <label for="physical_activity">Physical activities:</label>
+            <input type="text" id="physical_activity" name="physical_activity" required>
+                
+            <label for="sleeping_hours">Daily sleeping hours:</label>
+            <input type="number" id="sleeping_hours" name="sleeping_hours" required>
+                
+            <label for="alcohol_consumption">Alcohol consumption:</label>
+            <input type="text" id="alcohol_consumption" name="alcohol_consumption" required>
+                
+            <label for="social_interaction">Social interaction level:</label>
+            <div class="radio-group">
+                <input type="radio" id="introvert" name="social_interaction" value="Introvert">
+                <label for="introvert">Introvert</label>
+                <input type="radio" id="ambivert" name="social_interaction" value="Ambivert">
+                <label for="ambivert">Ambivert</label>
+                <input type="radio" id="extrovert" name="social_interaction" value="Extrovert">
+                <label for="extrovert">Extrovert</label>
+            </div>
+                
+            <label for="supplements">Taking supplements:</label>
+            <input type="text" id="supplements" name="supplements">
+
+            <label for="mental_health">How do you manage your mental well being?</label>
+            <input type="text" id="mental_health" name="mental_health">
+            
+            <label for="illness_lastyear">What was you illness count last year?</label>
+            <input type="text" id="illness_lastyear" name="illness_lastyear">
+
+            <!-- Submit button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="recommendation">
+        <h2>Your Health Recommendations</h2>
+        <div id="recommendations"></div>
+    </div>
+
+    <<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('survey-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const params = new URLSearchParams(formData);
+
+                const eventSource = new EventSource(`/recommendations?${params.toString()}`);
+                eventSource.onmessage = function (event) {
+                    const recommendationsDiv = document.getElementById("recommendations");
+                    recommendationsDiv.innerHTML += event.data + " ";
+                };
+                eventSource.onerror = function () {
+                    eventSource.close();
+                };
+            });
+        });
+    </script>
+</body>
+</html>
