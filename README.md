@@ -67,6 +67,7 @@ To address these challenges, WellnessSync deploys a machine learning model using
    unzip health_data.zip
 2. Start the Flask server and Gradio interface:
    ```bash
-   python app.py
+   python app3.py
+   python image-ana.py on second terminal
 
 ## Thank you for using WellnessSync! We hope this tool helps you on your journey to a healthier lifestyle.
