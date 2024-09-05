@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)  # Secure secret key
 
 # Set up Google Generative AI API key
-genai.configure(api_key='AIzaSyAEZ0azeHxioW6IBlBnP3niII8RpK9H_mk')  # Replace with your API key
+genai.configure(api_key='')  # Replace with your API key
 gemini = genai.GenerativeModel()
 
 # Initialize Firebase Admin SDK
