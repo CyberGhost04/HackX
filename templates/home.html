@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Wellness Sync</title>
@@ -50,8 +51,9 @@
         .container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 120px); /* Adjust height considering the header */
+            /* align-items: center; */
+            min-height: calc(100vh - 120px);
+            /* Adjust height considering the header */
             padding: 20px;
             text-align: center;
         }
@@ -61,14 +63,13 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
             width: 100%;
             transition: transform 0.3s ease;
         }
 
-        .home-content:hover {
+        /* .home-content:hover {
             transform: scale(1.05);
-        }
+        } */
 
         h1 {
             margin-top: 0;
@@ -111,8 +112,205 @@
             width: 100%;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
+
+        /* Container for the progress box */
+        .progress-box {
+            background: #f0f8ff;
+            /* Light blue background */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* Container for the progress bar */
+        .progress-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: auto;
+        }
+
+        /* The circular progress bar background */
+        .circle {
+            fill: none;
+            stroke-width: 15;
+        }
+
+        .circle-bg {
+            stroke: #e0f7fa;
+            /* Light cyan for background */
+        }
+
+        .circle-progress {
+            stroke: #00bcd4;
+            /* Bright cyan for progress */
+            stroke-linecap: round;
+            transition: stroke-dasharray 0.3s ease;
+        }
+
+        /* Styling for the text in the center of the progress bar */
+        .progress-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00796b;
+            /* Darker cyan for text */
+            text-anchor: middle;
+            /* Center text horizontally */
+            alignment-baseline: central;
+            /* Center text vertically */
+        }
+
+        /* Button styling */
+        #updateProgressBtn {
+            background-color: #00bcd4;
+            /* Cyan button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #updateProgressBtn:hover {
+            background-color: #0097a7;
+            /* Darker cyan on hover */
+        }
+
+        .progress-box {
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: auto;
+            margin: 20px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; */
+        }
+
+        /* Styling for the images */
+        .progress-box img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Card Content Styling */
+        .progress-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Card Title Styling */
+        .progress-box h2 {
+            margin: 0 0 10px 0;
+        }
+
+        /* Progress Bar Styling */
+        .progress-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: auto;
+        }
+
+        .circle {
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+            /* Smooth ends for the progress circle */
+        }
+
+        /* Water Intake Card Styling */
+        #progressCircleWater {
+            stroke: #0097a7;
+            /* Darker cyan */
+        }
+
+        #progressTextWater {
+            color: #004d40;
+            /* Darker cyan */
+        }
+
+        /* Daily Steps Card Styling */
+        #progressCircleSteps {
+            stroke: #388e3c;
+            /* Darker green */
+        }
+
+        #progressTextSteps {
+            color: #1b5e20;
+            /* Darker green */
+        }
+
+        /* Calorie Intake Card Styling */
+        #progressCircleCalories {
+            stroke: #f57c00;
+            /* Darker orange */
+        }
+
+        #progressTextCalories {
+            color: #e64a19;
+            /* Darker orange */
+        }
+
+        .progress-text {
+            font-size: 18px;
+            font-weight: bold;
+            text-anchor: middle;
+            alignment-baseline: central;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #00bcd4;
+            /* Default cyan button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0097a7;
+            /* Darker cyan on hover */
+        }
+
+        /* Card Container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 50%;
+        }
+
+        /* Basic styling for the canvas */
+        #sleepChart {
+            /* max-width: 500px; */
+            /* Reduced width */
+            /* margin: auto; */
+            padding: 20px;
+            background-color: #ffffff;
+            /* White background for better contrast */
+            border-radius: 8px;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -126,14 +324,156 @@
     </header>
     <div class="container">
         <div class="home-content">
-            <h1>Welcome to Wellness Sync</h1>
-            <p>Your personalized health and wellness recommendations based on your data.</p>
-            <a href="{{ url_for('survey') }}" class="button">Take the Survey</a>
+            <h1>Welcome back Shivam!</h1>
+            <p>Here's how your well-being is doing so far:</p>
+            <div class="tiles" style="display: flex;">
+                <div class="card-container">
+                    <div class="progress-box" id="waterCard">
+                        <!-- <img src="Stay Hydrated And Drink Water Sticker.jpeg" alt="Water Icon" style="width: 120px; height: 120px;"> -->
+                        <div class="progress-content">
+                            <h2>Water Intake</h2>
+                            <div class="progress-container">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <circle class="circle" cx="60" cy="60" r="50" stroke="#b2ebf2" />
+                                    <!-- Light cyan background -->
+                                    <circle id="progressCircleWater" class="circle" cx="60" cy="60" r="50" />
+                                    <text id="progressTextWater" class="progress-text" x="50%" y="50%"
+                                        dominant-baseline="middle" text-anchor="middle">60%</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-box" id="stepCard">
+
+                        <div class="progress-content">
+                            <h2>Daily Steps</h2>
+                            <div class="progress-container">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <circle class="circle" cx="60" cy="60" r="50" stroke="#c8e6c9" />
+                                    <!-- Light green background -->
+                                    <circle id="progressCircleSteps" class="circle" cx="60" cy="60" r="50" />
+                                    <text id="progressTextSteps" class="progress-text" x="50%" y="50%"
+                                        dominant-baseline="middle" text-anchor="middle">80%</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calorie Intake Card -->
+                    <div class="progress-box" id="calorieCard">
+
+                        <div class="progress-content">
+                            <h2>Calorie Intake</h2>
+                            <div class="progress-container">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <circle class="circle" cx="60" cy="60" r="50" stroke="#ffe0b2" />
+                                    <!-- Light orange background -->
+                                    <circle id="progressCircleCalories" class="circle" cx="60" cy="60" r="50" />
+                                    <text id="progressTextCalories" class="progress-text" x="50%" y="50%"
+                                        dominant-baseline="middle" text-anchor="middle">40%</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sleepChart" style="margin-left: 22px;">
+                        <canvas id="sleepPatternChart" width="580px;" height="200px"></canvas>
+                    </div>
+                </div>
+
+                <div class="right" style="width: 50%; display: flex; flex-direction: column;">
+                    <div>
+                        <img src="baymax.jpg" alt="" height="400px" width="400px" style="border-radius: 50%;">
+                    </div>
+                    <div>
+                        <p>Your personalized health and wellness recommendations based on your data.</p>
+                        <a href="{{ url_for('survey') }}" class="button">Take the Survey</a>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
     <footer>
         <p>&copy; 2024 Wellness Sync. All Rights Reserved.</p>
     </footer>
-</body>
-</html>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('sleepPatternChart').getContext('2d');
+        const sleepPatternChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                datasets: [{
+                    label: 'Sleep Hours',
+                    data: [7.5, 8, 6.5, 7, 7.5, 8, 6],
+                    borderColor: '#ff6f61', // High-contrast color for the line
+                    backgroundColor: 'rgba(173, 216, 230, 0.2)', // Light coral background
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.1 // Smooth lines
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false // Hide the legend
+                    },
+                    tooltip: {
+                        backgroundColor: '#333', // Dark tooltip background
+                        titleColor: '#fff', // White title color
+                        bodyColor: '#fff' // White body color
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: '#e0e0e0' // Light grid lines
+                        },
+                        title: {
+                            display: true,
+                            text: 'Days of the Week',
+                            color: '#333' // Dark color for x-axis title
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: '#e0e0e0' // Light grid lines
+                        },
+                        title: {
+                            display: true,
+                            text: 'Hours of Sleep',
+                            color: '#333' // Dark color for y-axis title
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Function to update the progress bar
+        function updateProgress(circleId, textId, percentage) {
+            const radius = 50;
+            const circumference = 2 * Math.PI * radius;
+            const progressCircle = document.getElementById(circleId);
+            const progressText = document.getElementById(textId);
+
+            // Calculate the stroke-dasharray value based on the percentage
+            const offset = circumference - (percentage / 100) * circumference;
+            progressCircle.style.strokeDasharray = circumference;
+            progressCircle.style.strokeDashoffset = offset;
+
+            // Update the text in the center of the progress bar
+            progressText.textContent = `${percentage}%`;
+        }
+
+        // Set static progress values for each progress bar
+        updateProgress('progressCircleWater', 'progressTextWater', 60); // Fixed value for Water Intake
+        updateProgress('progressCircleSteps', 'progressTextSteps', 80); // Fixed value for Daily Steps
+        updateProgress('progressCircleCalories', 'progressTextCalories', 40); // Fixed value for Calorie Intake
+    </script>
+</body>
+
+</html>

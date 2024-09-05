@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Response, stream_with_context, redirect, url_for, session, flash
+from flask import Flask, render_template, request, Response, send_from_directory, stream_with_context, redirect, url_for, session, flash
 import joblib
 import pandas as pd
 import re
@@ -20,9 +20,9 @@ genai.configure(api_key='AIzaSyAEZ0azeHxioW6IBlBnP3niII8RpK9H_mk')  # Replace wi
 gemini = genai.GenerativeModel()
 
 # Initialize Firebase Admin SDK
-cred = credentials.Certificate(r"C:\Users\Shivam\Python\PPTGenerator\health-monitoring\wellness-sync-aec5f-firebase-adminsdk-iy5pb-07d2fb859c.json"
-)
-firebase_admin.initialize_app(cred)
+# cred = credentials.Certificate(r"C:\Users\Shivam\Python\PPTGenerator\health-monitoring\wellness-sync-aec5f-firebase-adminsdk-iy5pb-07d2fb859c.json"
+# )
+# firebase_admin.initialize_app(cred)
 
 def clean_text(text):
     text = re.sub(r'\*\*', '', text)
@@ -72,18 +72,50 @@ def predict_health(user_data):
 def index():
     return redirect(url_for('login'))
 
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     if request.method == 'POST':
+#         email = request.form['email']
+#         password = request.form['password']
+#         try:
+#             # Check user credentials with Firebase
+#             user = auth.get_user_by_email(email)
+#             # For simplicity, assuming success here. Implement actual password check in production
+#             session['user'] = user.uid
+#             return redirect(url_for('home'))
+#         except Exception as e:
+#             flash('Email or Password is incorrect. Please try again.')
+#             return redirect(url_for('login'))
+#     return render_template('login.html')
+
+# @app.route('/register', methods=['GET', 'POST'])
+# def register():
+#     if request.method == 'POST':
+#         email = request.form['email']
+#         password = request.form['password']
+#         try:
+#             # Create user in Firebase
+#             auth.create_user(email=email, password=password)
+#             flash('Registration successful. Please log in.')
+#             return redirect(url_for('login'))
+#         except Exception as e:
+#             flash(str(e))
+#             return redirect(url_for('register'))
+#     return render_template('register.html')
+
+@app.route('/baymax.jpg')
+def send_image():
+    return send_from_directory('static/images', 'baymax.jpg')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        try:
-            # Check user credentials with Firebase
-            user = auth.get_user_by_email(email)
-            # For simplicity, assuming success here. Implement actual password check in production
-            session['user'] = user.uid
+        if email == 'root@email' and password == 'root':
+            session['user'] = 'root'
             return redirect(url_for('home'))
-        except Exception as e:
+        else:
             flash('Email or Password is incorrect. Please try again.')
             return redirect(url_for('login'))
     return render_template('login.html')
@@ -91,20 +123,12 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        try:
-            # Create user in Firebase
-            auth.create_user(email=email, password=password)
-            flash('Registration successful. Please log in.')
-            return redirect(url_for('login'))
-        except Exception as e:
-            flash(str(e))
-            return redirect(url_for('register'))
+        flash('Registration is disabled.')
+        return redirect(url_for('login'))
     return render_template('register.html')
 
 @app.route('/home')
-def home():
+def home(): 
     if 'user' in session:
         return render_template('home.html')
     else:

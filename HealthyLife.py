@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import joblib
 
 # Unzip the file and load the datasets
-with zipfile.ZipFile(r'C:\Users\Shivam\Downloads\health_data.zip', 'r') as z:
+with zipfile.ZipFile(r'C:\Sidhant\Projects\HackX\wellnessSync\health_data.zip', 'r') as z:
     z.extractall()
 
 train_df = pd.read_csv('Train_Data.csv')
