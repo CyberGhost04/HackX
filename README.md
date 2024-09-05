@@ -57,6 +57,10 @@ To address these challenges, WellnessSync deploys a machine learning model using
 2. Install the required libraries:
    ```bash
    pip install -r requirements.txt
+3. Add your Gemini api key in the following files:
+   ```bash
+   app3.py 
+   image-ana.py
 ### Running the Application
 1. Clone the repository:
    ```bash
