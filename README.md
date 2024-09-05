@@ -62,10 +62,7 @@ To address these challenges, WellnessSync deploys a machine learning model using
    app3.py 
    image-ana.py
 ### Running the Application
-1. Clone the repository:
-   ```bash
-   unzip health_data.zip
-2. Start the Flask server and Gradio interface:
+1. Start the Flask server and Gradio interface:
    ```bash
    python app3.py
    python image-ana.py on second terminal
