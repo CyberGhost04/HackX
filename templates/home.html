@@ -50,11 +50,15 @@
 
         .container {
             display: flex;
+            align-items: center;
             justify-content: center;
+            max-width: 97.5%;
+            margin-left: 20px;
+            margin-top: 20px;
             /* align-items: center; */
             min-height: calc(100vh - 120px);
             /* Adjust height considering the header */
-            padding: 20px;
+            /* padding: 20px; */
             text-align: center;
         }
 
@@ -308,6 +312,145 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             /* Subtle shadow */
         }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: #e0f7fa;
+        }
+
+        .content-wrapper1 {
+            display: flex;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .image-section {
+            flex: 1;
+            background-image: url('./mail5.avif');
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+
+        .contact-form {
+            flex: 1;
+            padding: 40px;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        .contact-form h1 {
+            text-align: center;
+            color: #00bcd4;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .contact-form p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #666;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #00bcd4;
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .form-group button {
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #0097a7;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #00bcd4;
+            margin: 30px 0;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .contact-info a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #0097a7;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper1 {
+                flex-direction: column;
+            }
+
+            .image-section {
+                height: 300px;
+            }
+        }
     </style>
 </head>
 
@@ -316,9 +459,7 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Survey</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -393,7 +534,47 @@
             </div>
         </div>
 
+
+
+
+
     </div>
+
+    <div class="container1">
+        <div class="content-wrapper1" id="contact">
+            <div class="image-section"></div>
+            <div class="contact-form">
+                <h1>Contact Us</h1>
+                <p>Have questions? We'd love to hear from you! Fill out the form below, and we'll get back to you as
+                    soon as
+                    possible.</p>
+                <form action="submit_contact.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </form>
+
+                <hr>
+
+                <div class="contact-info">
+                    <p>Or reach out to us at <a href="mailto:support@wellnesssync.com">support@wellnesssync.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Wellness Sync. All Rights Reserved.</p>
     </footer>
